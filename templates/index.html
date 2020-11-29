@@ -2,15 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Guess number</title>
+    <title>Title</title>
 </head>
 <body>
-<h1>Imagine number between 1 to 1000</h1>
-
 <form action="/" method="post">
-    <input type="hidden" name="min_" value="{0}">
-    <input type="hidden" name="max_" value="{1000}">
+<h1>{{ msg }}</h1>
+{% if init: %}
     <input type="submit" value="OK">
+{% else: %}
+    <h1>Is it {{ guess }}?</h1>
+    <input type="submit" value="Too small" name="too_small">
+    <input type="submit" value="You guessed" name="you_guessed">
+    <input type="submit" value="Too much" name="too_much">
+{% endif %}
+<input type="hidden" name="min_" value="{{ min_ }}">
+<input type="hidden" name="max_" value="{{ max_ }}">
 </form>
+
 </body>
 </html>
